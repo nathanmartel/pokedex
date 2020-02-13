@@ -5,7 +5,7 @@ export default class Header extends Component {
 
     return (
     <header>
-      <h1>Horned Creatures</h1>
+      <h1>Pokedex</h1>
     </header>
     )
     }

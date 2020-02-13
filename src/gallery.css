@@ -14,10 +14,11 @@ header {
   max-width: 200px;
   margin: 20px;
   list-style-type: none;
+  text-align: center;
 }
 
 .data-list li .card-image {
-/*  padding-top: 56.25%; /* 16:9 aspect ratio */  
+  padding: 20px;
 }
 
 .data-list li .card-image img {
@@ -27,7 +28,28 @@ header {
 .data-list li .card-text {
   padding: 15px;
 }
-  
-select { 
-  margin: 20px 0 20px 20px;
+
+.data-list li .card-table {
+  padding: 20px; 
+}
+
+.data-list li .card-table table { 
+  width: 100%;
+  margin: 20px auto;
+}
+
+.data-list li .card-table td { 
+  padding: 5px 10px;
+}
+
+.data-list li .card-table tr:nth-child(odd)  { 
+  background-color: rgba(0,0,0,0.1);
+}
+
+.data-list li .card-table tr:nth-child(even)  { 
+  background-color: rgba(255,255,255,0.5);
+}
+
+.left {
+  text-align: left;
 }
