@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders 1`] = `
+<header>
+  <h1
+    className="hidden"
+  >
+    Pokemon
+  </h1>
+  <div
+    class="img-container"
+  >
+    <img
+      alt="Pokemon logo"
+      src="pokemon-logo-png-2000.png"
+    />
+  </div>
+</header>
+`;

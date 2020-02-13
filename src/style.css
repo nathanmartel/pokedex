@@ -1,3 +1,32 @@
+body {
+    background-color: #3b4cca;
+    color: #eee;
+}
+
 a {
-    color: #3b4cca;
+    color: #ffde00;
+}
+
+a:hover {
+    color: #ffde00;
+}
+
+header {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+
+header .img-container {
+    margin: 30px auto;
+    width: 80%;
+    max-width: 500px;
+}
+
+.img-container img {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
 }

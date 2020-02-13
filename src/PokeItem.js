@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { capitalizeFirstLetter, evolvesFrom } from './api.js';
 
 export default class PokeItem extends Component {
     render() {
@@ -7,7 +8,7 @@ export default class PokeItem extends Component {
             <img src={this.props.pokemon.url_image} alt={this.props.pokemon.pokemon} />
         </div>
         <div className="card-text">
-            <h3><a href={this.props.pokemon.pokedex}>{capitalizeFirstLetter(this.props.pokemon.pokemon)}</a></h3>
+            <h2><a href={this.props.pokemon.pokedex}>{capitalizeFirstLetter(this.props.pokemon.pokemon)}</a></h2>
             <p>Evolves from {this.props.pokemon.evolves_from_species_id}</p>
         </div>
         <div className="card-table">
@@ -39,10 +40,6 @@ export default class PokeItem extends Component {
     }
 }
 
-// Via https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript :)
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 // Data Object example:
 // {

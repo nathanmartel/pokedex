@@ -5,7 +5,10 @@ export default class Header extends Component {
 
     return (
     <header>
-      <h1>Pokedex</h1>
+      <h1 className="hidden">Pokemon</h1>
+      <div class="img-container">
+        <img src="pokemon-logo-png-2000.png" alt="Pokemon logo" />
+      </div>
     </header>
     )
     }

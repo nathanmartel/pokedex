@@ -1,0 +1,84 @@
+.data-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.data-list li {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 9px;
+  max-width: 300px;
+  margin: 20px;
+  list-style-type: none;
+  text-align: center;
+}
+
+.data-list li:hover {
+  transform: scale(1.05);
+  transition: ease-in-out 0.2s;
+}
+
+.data-list li .card-image {
+  padding: 25px 50px;
+}
+
+.data-list li .card-image img {
+  width: 100%;
+  transition: ease-in-out 0.2s;
+}
+
+.data-list li .card-text {
+  padding: 0 15px 15px 15px;
+  font-size: 1.4em;
+}
+
+.data-list li .card-text h2 {
+  margin-bottom: 0;
+}
+
+.data-list li .card-table {
+  padding: 0px 30px 10px 30px; 
+}
+
+.data-list li .card-table table { 
+  width: 100%;
+  margin: 0px auto 20px auto;
+  font-size: 1.2em;
+}
+
+.data-list li .card-table td { 
+  padding: 5px 10px;
+  border-right: 1px dotted rgba(255,255,255,0.5);
+}
+
+.data-list li .card-table td:last-of-type { 
+  border-right: none;
+}
+
+.data-list li .card-table tr:nth-child(odd),
+.data-list li .card-table tr:nth-child(odd):hover,
+.data-list li .card-table tr:nth-child(even),
+.data-list li .card-table tr:nth-child(even):hover {
+transition: all ease-in-out 0.2s;
+}
+
+.data-list li .card-table tr:nth-child(odd)  { 
+  background-color: rgba(0,0,0,0.2);
+}
+
+.data-list li .card-table tr:nth-child(odd):hover  { 
+  background-color: rgba(0,0,0,0.3);
+}
+
+.data-list li .card-table tr:nth-child(even)  { 
+  background-color: rgba(0,0,0,0.4);
+}
+
+.data-list li .card-table tr:nth-child(even):hover  { 
+  background-color: rgba(0,0,0,0.5);
+}
+
+.left {
+  text-align: left;
+}
