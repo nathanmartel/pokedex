@@ -1,0 +1,33 @@
+header {
+  padding: 20px;
+  background-color: #eee;
+  margin-bottom: 20px;
+}
+
+.data-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.data-list li {
+  background-color: #eee;
+  max-width: 200px;
+  margin: 20px;
+  list-style-type: none;
+}
+
+.data-list li .card-image {
+/*  padding-top: 56.25%; /* 16:9 aspect ratio */  
+}
+
+.data-list li .card-image img {
+  width: 100%;
+}
+
+.data-list li .card-text {
+  padding: 15px;
+}
+  
+select { 
+  margin: 20px 0 20px 20px;
+}
