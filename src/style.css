@@ -30,3 +30,26 @@ header .img-container {
 .hidden {
     display: none;
 }
+
+
+/* MODULARIZE BELOW: */
+
+.searchBar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.searchBar input {
+    margin-right: 10px;
+}
+
+.pagination {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pagination a, 
+.pagination p {
+    display: inline-block;
+    margin: 0 10px;
+}

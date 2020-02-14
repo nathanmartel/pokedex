@@ -7,7 +7,7 @@ export default class Header extends Component {
     <header>
       <h1 className="hidden">Pokemon</h1>
       <div class="img-container">
-        <img src="pokemon-logo-png-2000.png" alt="Pokemon logo" />
+        <a href="/"><img src="pokemon-logo-png-2000.png" alt="Pokemon logo" /></a>
       </div>
     </header>
     )

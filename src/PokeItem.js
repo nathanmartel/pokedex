@@ -14,6 +14,7 @@ export default class PokeItem extends Component {
         <div className="card-table">
             <table>
                 {/* Should really modularize this. */}
+                <tbody>
                 <tr>
                     <td class="left">Attack</td>
                     <td>{this.props.pokemon.attack}</td>
@@ -34,6 +35,7 @@ export default class PokeItem extends Component {
                     <td class="left">Defense</td>
                     <td>{this.props.pokemon.special_defense}</td>
                 </tr>
+                </tbody>
             </table>
         </div>
     </li>
