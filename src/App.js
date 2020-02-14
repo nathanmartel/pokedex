@@ -13,6 +13,7 @@ export default class App extends Component {
     page: 1,
     numberOfResult: 0,
     numberOfResultsPerPage: 10,
+    searchInput: 'pidge',
   };
 
   
@@ -63,15 +64,34 @@ export default class App extends Component {
     window.location.hash = myParams.toString();
   }
 
+  handleSubmit = event => {
+    const form = document.getElementById('myForm');
+    event.preventDefault();
+    const formData = new FormData(form);
+
+    const myQueryString = window.location.hash.slice(1);
+    const myParams = new URLSearchParams(myQueryString);
+
+    //myParams.set('type', formData.get('type'));
+    const mySearch = formData.get('search');
+    myParams.set('pokemon', formData.get('search'));
+    console.log('mySearch', mySearch);
+    // Reset to page 1 as this is new search and
+    myParams.set('page', 1);
+
+    window.location.hash = myParams.toString();
+  };
+
   render() {
     return (
       <div>
         {this.setInitialParams()}
         <Header />
         <div className="searchBar">
-          <form>
-            <input type="text"></input>
-            <button type="submit" onClick={() => {}}>Search</button>
+          <form id="myForm" onSubmit={this.handleSubmit}>
+            <input id="search" name="search" type="text" onChange={e => this.setState({ searchInput: e.target.value })}
+            value={this.state.searchInput}></input>
+            <button type="submit">Search</button>
           </form>
         </div>
         <div className="pagination">
