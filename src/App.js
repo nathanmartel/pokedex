@@ -11,19 +11,23 @@ export default class App extends Component {
   state = { 
     pokeData: [],
     page: 1,
+    numberOfResult: 0,
+    numberOfResultsPerPage: 10,
   };
 
+  
   async getPokeList() {
     // Build URL for use with API request
     const dataURL = 'https://alchemy-pokedex.herokuapp.com/api/pokedex';
     // Grab everything in URL after # with built-in hash property and remove hashtag.
     let myQueryString = window.location.hash.slice(1);
     // console.log('myQueryString: ', myQueryString);
-    // myQueryString = 'page=3&perPage=2';
+    // i.e.: myQueryString = 'page=3&perPage=2';
     const hashedURL = `${dataURL}?${myQueryString}`;
     console.log('Requesting URL: ', hashedURL);
     const data = await request.get(hashedURL);
     this.setState({ pokeData: data.body.results });
+    this.setState({ numberOfResults: data.body.count });
   }
 
   async componentDidMount() {
@@ -32,8 +36,10 @@ export default class App extends Component {
       const myQueryString = window.location.hash.slice(1);
       const myParams = new URLSearchParams(myQueryString);
       const myParamsPage = Number(myParams.get('page'));
-      console.log('myParamsPage: ', myParamsPage); 
+      const myParamsPerPage = Number(myParams.get('perPage'));
+      console.log('myParams: ', myParams); 
       this.setState({ page: myParamsPage });
+      this.setState({ numberOfResultsPerPage: myParamsPerPage });
       this.getPokeList();
     });
   }
@@ -43,15 +49,24 @@ export default class App extends Component {
     const myQueryString = window.location.hash.slice(1);
     const myParams = new URLSearchParams(myQueryString);
     myParams.set('page', this.state.page + numberOfPages);
+    myParams.set('perPage', this.state.numberOfResultsPerPage);
     console.log('myParams: ', myParams);
     // Use hash property to change only relevant parts of local URL
     window.location.hash = myParams.toString();
+  }
 
+  setInitialParams() {
+    const myQueryString = window.location.hash.slice(1);
+    const myParams = new URLSearchParams(myQueryString);
+    myParams.set('page', this.state.page);
+    myParams.set('perPage', this.state.numberOfResultsPerPage);
+    window.location.hash = myParams.toString();
   }
 
   render() {
     return (
       <div>
+        {this.setInitialParams()}
         <Header />
         <div className="searchBar">
           <form>
@@ -61,7 +76,7 @@ export default class App extends Component {
         </div>
         <div className="pagination">
           <button onClick={() => this.updatePage(-1)} disabled={this.state.page === 1 ? "true" : ""}>Previous</button>
-          <p>Page {this.state.page} of Y</p>
+          <p>Page {this.state.page} of {Math.ceil(this.state.numberOfResults / this.state.numberOfResultsPerPage) }</p>
           <button onClick={() => this.updatePage(1)}>Next</button>
         </div>
         {/* { JSON.stringify(this.state.pokeData) } */}
